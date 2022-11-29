@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 //setCategory, lo cambiamos por onNewCategory
 
@@ -28,14 +29,20 @@ export const AddCategory = ({onNewCategory}) => {
     }
 
     return (
-        <form onSubmit={(event) => {onSubmit(event)}}>
+        <form onSubmit={(event) => {onSubmit(event)}} aria-label="form">
 
             <input 
                 type="text" 
                 placeholder="Buscar Gifs" 
                 value={inputValue} 
-                onChange={(event) => {onInputChange(event)}}/>
+                onChange={(event) => {onInputChange(event)}}
+            />
 
         </form>
     );
 };
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired,
+}
